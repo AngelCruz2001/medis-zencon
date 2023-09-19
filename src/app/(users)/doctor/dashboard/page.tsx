@@ -3,9 +3,7 @@ import { BsPeople, BsCalendarCheck } from 'react-icons/bs';
 import { HiOutlineCash } from 'react-icons/hi'
 import { AiOutlineHeart } from 'react-icons/ai'
 import { Rectangle } from '@/components/Rectangle';
-import { Calendar } from "@/components/ui/calendar"
-
-import { Table, TableHeader, TableColumn, TableBody, TableRow, TableCell, getKeyValue } from "@nextui-org/react";
+import { Table, TableHeader, TableColumn, TableBody, TableRow, TableCell, getKeyValue, Card, CardBody } from "@nextui-org/react";
 import React from 'react';
 
 export default function Dashboard() {
@@ -111,37 +109,29 @@ export default function Dashboard() {
           </div>
         </section>
         <section className='w-1/2 h-[300px] shadow-md overflow-hidden'>
-          <Table className='overflow-auto h-full bg-white' aria-label="Appointments list">
-            <TableHeader>
-              {columns.map((column) =>
-                <TableColumn key={column.key}>{column.label}</TableColumn>
-              )}
-            </TableHeader>
-            <TableBody>
-              {rows.map((row) =>
-                <TableRow key={row.id}>
-                  {(columnKey) => <TableCell>{getKeyValue(row, columnKey)}</TableCell>}
-                </TableRow>
-              )}
-            </TableBody>
-          </Table>
+          <Card>
+            <CardBody>
+              
+              <Table className='overflow-auto h-full bg-white' aria-label="Appointments list">
+                <TableHeader>
+                  {columns.map((column) =>
+                    <TableColumn key={column.key}>{column.label}</TableColumn>
+                  )}
+                </TableHeader>
+                <TableBody>
+                  {rows.map((row) =>
+                    <TableRow key={row.id}>
+                      {(columnKey) => <TableCell>{getKeyValue(row, columnKey)}</TableCell>}
+                    </TableRow>
+                  )}
+                </TableBody>
+              </Table>
+            </CardBody>
+          </Card>
         </section>
       </div>
 
       <section className='bg-white flex'>
-
-        <Calendar
-          mode="single"
-          selected={date}
-          onSelect={setDate}
-          className="rounded-md border"
-        />
-        <Calendar
-          mode="single"
-          selected={date}
-          onSelect={setDate}
-          className="rounded-md border"
-        />
       </section>
     </div>
   )
