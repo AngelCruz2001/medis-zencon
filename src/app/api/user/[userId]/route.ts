@@ -1,9 +1,7 @@
 `use client`;
 import connectMongoDB from "@/lib/mongodb";
 import User from "@/models/user.model";
-import { NextApiRequest } from "next";
-import { useParams, useRouter } from "next/navigation";
-import { NextRequest, NextResponse } from "next/server";
+import { NextResponse } from "next/server";
 
 export async function PUT(req: any, res: any) {
   try {
@@ -23,7 +21,7 @@ export async function PUT(req: any, res: any) {
       });
     }
   } catch (error) {
-    console.log(error)
+    console.log(error);
     return NextResponse.json({
       ok: false,
       msg: "Id not valid",
